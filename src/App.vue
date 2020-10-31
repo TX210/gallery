@@ -17,6 +17,9 @@
           {{ link }}
         </v-col>
       </v-row>
+      <v-divider></v-divider>
+      <div><router-view></router-view></div>
+
       <v-footer fixed class="cyan accent-1 justify-space-around">
         <div
           v-for="(link, index) in footer_links"
