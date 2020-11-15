@@ -4,10 +4,8 @@ import router from "./router";
 import store from "@/store";
 import vuetify from "./plugins/vuetify";
 import VueMasonry from "vue-masonry-css";
-import VModal from "vue-js-modal";
 Vue.config.productionTip = false;
 Vue.use(VueMasonry);
-Vue.use(VModal, { componentName: "Foo" });
 new Vue({
   router,
   store,
