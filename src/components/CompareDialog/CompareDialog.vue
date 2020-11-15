@@ -1,12 +1,10 @@
 <template>
-  <v-dialog width="500" v-model="open">
-    <div>
-      <VueCompareImage
-        :sliderPositionPercentage="1"
-        :leftImage="require(`@/assets/${this.image_src.split('/')[2][0]}1.jpg`)"
-        :rightImage="image_src"
-      ></VueCompareImage>
-    </div>
+  <v-dialog @input="dialogWidth = 651" :width="dialogWidth" v-model="open">
+    <VueCompareImage
+      :sliderPositionPercentage="1"
+      :leftImage="require(`@/assets/${image_src.split('/')[2][0]}1.jpg`)"
+      :rightImage="image_src"
+    ></VueCompareImage>
   </v-dialog>
 </template>
 <script>
@@ -14,9 +12,14 @@ import VueCompareImage from "vue-compare-image";
 
 export default {
   components: { VueCompareImage },
-
-  props: ["open", "image_src"]
-
+  data: () => ({
+    dialogWidth: 650
+  }),
+  props: ["open", "image_src"],
+  updated() {
+    console.log("open?");
+    this.dialogWidth = 651;
+  }
   // open: Boolean || undefined,
   // image_src: String || undefined
   //   computed: {
