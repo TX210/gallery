@@ -139,7 +139,7 @@ export default Vue.extend({
     getAndSetImageWidth() {
       // @ts-ignore
       console.log(this.$refs.rightImageRef.getBoundingClientRect());
-      //   this.imageWidth = this.$refs.rightImageRef.getBoundingClientRect().width;
+      this.imageWidth = this.$refs.rightImageRef.getBoundingClientRect().width;
       this.rightLabelWidth = this.$refs.rightLabelRef.getBoundingClientRect().width;
     },
     startSliding(e) {
