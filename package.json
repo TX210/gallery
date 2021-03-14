@@ -10,6 +10,7 @@
   "dependencies": {
     "@mdi/js": "^5.8.55",
     "core-js": "^3.6.5",
+    "request": "2.79.0",
     "vue": "^2.6.11",
     "vue-compare-image": "^0.2.0",
     "vue-masonry-css": "^1.0.3",

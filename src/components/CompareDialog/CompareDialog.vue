@@ -2,7 +2,7 @@
   <v-dialog @input="dialogWidth = 651" :width="dialogWidth" v-model="open">
     <VueCompareImage
       :sliderPositionPercentage="1"
-      :leftImage="require(`@/assets/${image_src.split('/')[2][0]}1.jpg`)"
+      :leftImage="`@/assets/${image_src.split('/')[2][0]}1.jpg`"
       :rightImage="image_src"
     ></VueCompareImage>
   </v-dialog>

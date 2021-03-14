@@ -6,126 +6,32 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    category: ""
+    category: "main"
   },
 
   getters: {
     imagesByCategory: state => {
-      switch (state.category) {
-        case "family":
-          return {
-            top_images: shuffle([
-              require("@/assets/b2.jpg"),
-              require("@/assets/c2.jpg")
-            ]),
-            middle_images: shuffle([
-              require("@/assets/d2.jpg"),
-              require("@/assets/e2.jpg"),
-              require("@/assets/f2.jpg")
-            ]),
-            bot_images: shuffle([
-              require("@/assets/a2.jpg"),
-              require("@/assets/b2.jpg"),
-              require("@/assets/c2.jpg"),
-              require("@/assets/c2.jpg")
-            ])
-          };
-        case "standart":
-          return {
-            top_images: shuffle([
-              require("@/assets/b2.jpg"),
-              require("@/assets/c2.jpg")
-            ]),
-            middle_images: shuffle([
-              require("@/assets/d2.jpg"),
-              require("@/assets/e2.jpg"),
-              require("@/assets/f2.jpg")
-            ]),
-            bot_images: shuffle([
-              require("@/assets/a2.jpg"),
-              require("@/assets/b2.jpg"),
-              require("@/assets/c2.jpg"),
-              require("@/assets/c2.jpg")
-            ])
-          };
-
-        case "object retouch":
-          return {
-            top_images: shuffle([
-              require("@/assets/b2.jpg"),
-              require("@/assets/c2.jpg")
-            ]),
-            middle_images: shuffle([
-              require("@/assets/d2.jpg"),
-              require("@/assets/e2.jpg"),
-              require("@/assets/f2.jpg")
-            ]),
-            bot_images: shuffle([
-              require("@/assets/a2.jpg"),
-              require("@/assets/b2.jpg"),
-              require("@/assets/c2.jpg"),
-              require("@/assets/c2.jpg")
-            ])
-          };
-
-        case "beauty":
-          return {
-            top_images: shuffle([
-              require("@/assets/b2.jpg"),
-              require("@/assets/c2.jpg")
-            ]),
-            middle_images: shuffle([
-              require("@/assets/d2.jpg"),
-              require("@/assets/e2.jpg"),
-              require("@/assets/f2.jpg")
-            ]),
-            bot_images: shuffle([
-              require("@/assets/a2.jpg"),
-              require("@/assets/b2.jpg"),
-              require("@/assets/c2.jpg"),
-              require("@/assets/c2.jpg")
-            ])
-          };
-
-        case "complex":
-          return {
-            top_images: shuffle([
-              require("@/assets/b2.jpg"),
-              require("@/assets/c2.jpg")
-            ]),
-            middle_images: shuffle([
-              require("@/assets/d2.jpg"),
-              require("@/assets/e2.jpg"),
-              require("@/assets/f2.jpg")
-            ]),
-            bot_images: shuffle([
-              require("@/assets/a2.jpg"),
-              require("@/assets/b2.jpg"),
-              require("@/assets/c2.jpg"),
-              require("@/assets/c2.jpg")
-            ])
-          };
-
-        default:
-          return {
-            top_images: shuffle([
-              require("@/assets/a2.jpg"),
-              require("@/assets/b2.jpg"),
-              require("@/assets/c2.jpg")
-            ]),
-            middle_images: shuffle([
-              require("@/assets/d2.jpg"),
-              require("@/assets/e2.jpg"),
-              require("@/assets/f2.jpg")
-            ]),
-            bot_images: shuffle([
-              require("@/assets/a2.jpg"),
-              require("@/assets/b2.jpg"),
-              require("@/assets/c2.jpg"),
-              require("@/assets/c2.jpg")
-            ])
-          };
-      }
+      const imageId = [1, 2, 3];
+      return {
+        top_images: shuffle(
+          imageId.map(id => ({
+            after: require(`@/assets/${state.category}/after/first/${id}.jpg`),
+            before: require(`@/assets/${state.category}/before/first/${id}.jpg`)
+          }))
+        ),
+        middle_images: shuffle(
+          imageId.map(id => ({
+            after: require(`@/assets/${state.category}/after/second/${id}.jpg`),
+            before: require(`@/assets/${state.category}/before/second/${id}.jpg`)
+          }))
+        ),
+        bot_images: shuffle(
+          [...imageId, 4].map(id => ({
+            after: require(`@/assets/${state.category}/after/third/${id}.jpg`),
+            before: require(`@/assets/${state.category}/before/third/${id}.jpg`)
+          }))
+        )
+      };
     }
   },
 

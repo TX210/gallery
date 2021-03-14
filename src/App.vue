@@ -1,12 +1,17 @@
 <template>
   <v-app>
     <v-main>
-      <h1 @click="setCategory('')" class="mt-10 main_head main_text">
+      <h1 @click="setCategory('main')" class="mt-10 main_head main_text">
+        <v-img
+          class="mx-auto"
+          max-width="100"
+          src="./assets/Alisa Savytskaya Gallery.png"
+        ></v-img>
         Mariya Savitskaya
       </h1>
 
       <h1
-        @click="setCategory('')"
+        @click="setCategory('main')"
         class="font-weight-thin text-center main_text"
       >
         retoucher
@@ -32,11 +37,14 @@
           <a
             target="_blank"
             href="https://www.instagram.com/invites/contact/?i=wtd1bi2dje1p&utm_content=k9oylq4"
-            ><v-icon class="mr-10">{{ icons.instagram }}</v-icon></a
+            ><v-icon color="grey darken-4" class="mr-10 ">{{
+              icons.instagram
+            }}</v-icon></a
           >
           <a
+            target="_blank"
             href="https://mail.google.com/mail/?view=cm&fs=1&to=mriaretoucher@gmail.com"
-            ><v-icon>mail</v-icon></a
+            ><v-icon color="grey darken-4">mail</v-icon></a
           >
         </div>
       </v-footer>
@@ -77,7 +85,7 @@ export default {
       "<v-icon>brightness_3</v-icon>",
       "ORDER"
     ],
-    top_links: ["family", "standart", "object retouch", "beauty", "complex"]
+    top_links: ["family", "standart", "man retouch", "beauty", "complex"]
   }),
   methods: {
     ...mapMutations(["SET_CATEGORY"]),
