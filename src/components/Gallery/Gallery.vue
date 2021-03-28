@@ -45,16 +45,12 @@
           dialogWidth = 600;
         "
       >
-        <v-img
-          lazy-src="https://picsum.photos/id/11/100/60"
-          class="rounded elevation-5 mt-8"
-          :src="image.after"
-        >
+        <v-img class="rounded elevation-5 mt-8" :src="image.after">
           <template v-slot:placeholder>
             <v-row class="fill-height ma-0" align="center" justify="center">
               <v-progress-circular
                 indeterminate
-                color="black"
+                color="red"
               ></v-progress-circular>
             </v-row> </template
         ></v-img>

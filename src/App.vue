@@ -62,6 +62,18 @@
           $vuetify.theme.dark ? "brightness_5" : "brightness_3"
         }}</v-icon>
       </v-btn>
+      <v-dialog v-model="dialog" persistent width="500">
+        <v-card color="#abf2ff">
+          <v-card-text class="black--text">
+            Please stand by
+            <v-progress-linear
+              indeterminate
+              color="black"
+              class="mb-0"
+            ></v-progress-linear>
+          </v-card-text>
+        </v-card>
+      </v-dialog>
     </v-main>
   </v-app>
 </template>
@@ -76,6 +88,7 @@ export default {
   components: {},
 
   data: () => ({
+    dialog: false,
     icons: {
       instagram: mdiInstagram
     },
@@ -90,7 +103,9 @@ export default {
   methods: {
     ...mapMutations(["SET_CATEGORY"]),
     setCategory(category) {
+      this.dialog = true;
       this.SET_CATEGORY(category);
+      setTimeout(() => (this.dialog = false), 3000);
     }
   }
 };
